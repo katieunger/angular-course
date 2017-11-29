@@ -1,7 +1,9 @@
-<label>Server Name</label>
+<label>Server Name Using Event Binding</label>
 <!-- $event is a reserved variable name you can use in the template when using event binding -->
 <!-- $event is the data emitted with that event -->
 <input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<label>Server Name Using Two-Way Databinding</label>
+<input type="text" class="form-control" [(ngModel)]="serverName">
 <p>{{ serverName }}</p>
 <button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <!--<p>{{ allowNewServer }}</p>-->
