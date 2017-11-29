@@ -1,3 +1,8 @@
+<label>Server Name</label>
+<!-- $event is a reserved variable name you can use in the template when using event binding -->
+<!-- $event is the data emitted with that event -->
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<p>{{ serverName }}</p>
 <button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <!--<p>{{ allowNewServer }}</p>-->
 <p>{{ serverCreationStatus }}</p>
