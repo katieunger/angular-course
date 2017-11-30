@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
   styles: [`h3{color:dodgerblue}`]
 })
 export class AppComponent {
-  allowResetUsername = false;
-  username = '';
+  allowResetUsername: boolean = false;
+  username: string = '';
   //title = 'Does this change?';
   //name = '';
 
