@@ -24,6 +24,6 @@ export class AppComponent {
 
   onResetUsername() {
     this.username = "";
-    this.onUpdateUsername();
+    this.allowResetUsername = false;
   }
 }
