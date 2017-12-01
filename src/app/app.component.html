@@ -27,14 +27,12 @@
         <li>Upon clicking the button, the username should be reset to an empty string</li>
       </ol>
       <label>Username</label>
-      <input type="text" class="form-control" [(ngModel)]="username" (input)="onUpdateUsername($event)">
+      <input type="text" class="form-control" [(ngModel)]="username">
       <p id="username">{{ username }}</p>
-      <button type="button" class="btn btn-primary" [disabled]="!allowResetUsername" (click)="onResetUsername()">Reset Username</button>
+      <button type="button" class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset Username</button>
     </div>
   </div>
 </div>
-
-
 
 
 <!--The content below is only a placeholder and can be replaced.-->

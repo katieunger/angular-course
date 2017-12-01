@@ -13,7 +13,6 @@ export class AppComponent {
   //name = '';
 
   onUpdateUsername(event: Event){
-    // HTMLInputElement informs TypeScript that the type of the HTML element of the event is an input
     console.log(this.username);
     if (this.username !== ""){
       this.allowResetUsername = true;
