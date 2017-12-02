@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   allowResetUsername: boolean = false;
   username: string = '';
+  showDetails: boolean = true;
   //title = 'Does this change?';
   //name = '';
 
@@ -25,4 +26,14 @@ export class AppComponent {
     this.username = "";
     this.allowResetUsername = false;
   }
+
+  toggleDetails() {
+    return this.showDetails ? this.showDetails = false : this.showDetails = true;
+  }
+
+  getShowDetails(){
+    return this.showDetails ? "none" : "block";
+  }
+
+
 }
