@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   //styleUrls: ['./app.component.css']
-  styles: [`h3{color:dodgerblue}`]
+  styles: [`h3{color:dodgerblue}, .white{color:white}`]
 })
 export class AppComponent {
   allowResetUsername: boolean = false;
@@ -47,5 +47,7 @@ export class AppComponent {
     return this.showDetails ? "none" : "block";
   }
 
-
+  getColor(click){
+    return click > 4 ? "blue" : "default";
+  }
 }
