@@ -30,25 +30,10 @@ export class AppComponent {
   }
 
   onClickDetails() {
-    // Add counter to clicksArray
-    if (this.clicksArray.length == 0){
-      this.clicksArray.push(0)
-    } else {
-      // Last element in array
-      var lastItem = this.clicksArray[this.clicksArray.length - 1];
-      this.clicksArray.push(lastItem + 1);
-    }
-    console.log(this.clicksArray);
-
     // Toggle showDetails boolean
-    return this.showDetails ? this.showDetails = false : this.showDetails = true;
-  }
+    this.showDetails = !this.showDetails;
 
-  getShowDetails(){
-    return this.showDetails ? "none" : "block";
-  }
-
-  getColor(click){
-    return click > 4 ? "blue" : "default";
+    // Add counter to clicksArray
+    this.clicksArray.push(this.clicksArray.length + 1);
   }
 }

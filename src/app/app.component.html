@@ -40,9 +40,9 @@
         <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
       </ol>
       <button type="button" class="btn btn-primary" (click)="onClickDetails()">{{ showDetails ? "Display" : "Hide" }} Details</button>
-      <p [ngStyle]="{display:getShowDetails()}">Secret password = tuna</p>
+      <p *ngIf="!showDetails">Secret password = tuna</p>
       <ul>
-        <li *ngFor="let click of clicksArray" [ngStyle]="{backgroundColor: getColor(click)}" [ngClass]="{white: click>4}">{{ click }}</li>
+        <li *ngFor="let click of clicksArray" [ngStyle]="{backgroundColor: click >= 5 ? 'blue' : 'transparent'}" [ngClass]="{white: click >= 5}">{{ click }}</li>
       </ul>
     </div>
   </div>
