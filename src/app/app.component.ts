@@ -34,6 +34,6 @@ export class AppComponent {
     this.showDetails = !this.showDetails;
 
     // Add counter to clicksArray
-    this.clicksArray.push(this.clicksArray.length + 1);
+    this.clicksArray.push(new Date());
   }
 }

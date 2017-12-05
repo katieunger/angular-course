@@ -42,7 +42,7 @@
       <button type="button" class="btn btn-primary" (click)="onClickDetails()">{{ showDetails ? "Display" : "Hide" }} Details</button>
       <p *ngIf="!showDetails">Secret password = tuna</p>
       <ul>
-        <li *ngFor="let click of clicksArray" [ngStyle]="{backgroundColor: click >= 5 ? 'blue' : 'transparent'}" [ngClass]="{white: click >= 5}">{{ click }}</li>
+        <li *ngFor="let click of clicksArray; let i = index" [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{white: i >= 4}">{{ click }}</li>
       </ul>
     </div>
   </div>
