@@ -1,75 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h3>I'm in the AppComponent!</h3>
-      <hr>
-      <h3>Servers Component</h3>
-      <app-servers></app-servers>
-      <hr>
-      <h1>Basics</h1>
-      <h3>Assignment 1</h3>
-      <ol>
-        <li>Create two new Components (manually or with CLI): WarningAlert and SuccessAlert</li>
-        <li>Output them beneath each other in the AppComponent</li>
-        <li>Output a warning or success message in the Components</li>
-        <li>Style the Components appropriately (maybe some red/ green text?)</li>
-      </ol>
-      <p>Use external or internal templates and styles!</p>
-      <p>Feel free to create more components, nest them into each other or play around with different types of selectors!</p>
-      <app-success-alert></app-success-alert>
-      <app-warning-alert></app-warning-alert>
-      <hr>
-      <h3>Assignment 2</h3>
-      <ol>
-        <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
-        <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
-        <li>Add a button which may only be clicked if the username is NOT an empty string</li>
-        <li>Upon clicking the button, the username should be reset to an empty string</li>
-      </ol>
-      <label>Username</label>
-      <input type="text" class="form-control" [(ngModel)]="username">
-      <p id="username">{{ username }}</p>
-      <button type="button" class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Reset Username</button>
-      <hr>
-      <h3>Assignment 3</h3>
-      <ol>
-        <li>Add a button which says 'Display Details'</li>
-        <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
-        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
-        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
-        <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
-      </ol>
-      <button type="button" class="btn btn-primary" (click)="onClickDetails()">{{ showDetails ? "Display" : "Hide" }} Details</button>
-      <p *ngIf="!showDetails">Secret password = tuna</p>
-      <ul>
-        <li *ngFor="let click of clicksArray; let i = index" [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{white: i >= 4}">{{ click }}</li>
-      </ul>
+    <div class="col-md-12">
+      <h2>I'm working!</h2>
     </div>
   </div>
 </div>
-
-
-<!--The content below is only a placeholder and can be replaced.-->
-
-<!--<div style="text-align:center">-->
-  <!--<h1>-->
-    <!--Welcome to {{title}}!-->
-  <!--</h1>-->
-  <!--&lt;!&ndash; Setting up two-way binding on name &ndash;&gt;-->
-  <!--<input type="text" [(ngModel)]="name">-->
-  <!--<p>{{ name }}</p>-->
-  <!--<img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">-->
-<!--</div>-->
-<!--<h2>Here are some links to help you start: </h2>-->
-<!--<ul>-->
-  <!--<li>-->
-    <!--<h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>-->
-  <!--</li>-->
-  <!--<li>-->
-    <!--<h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>-->
-  <!--</li>-->
-  <!--<li>-->
-    <!--<h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>-->
-  <!--</li>-->
-<!--</ul>-->
-
