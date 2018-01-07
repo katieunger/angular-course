@@ -15,6 +15,7 @@
     </div>
     <hr>
     <app-game-control> (gameStarted)="onGameStarted($event)" (gameStopped)="onGameStopped($event)"></app-game-control>
+    <app-even *ngFor="let evenNumber of numbers"></app-even>
     <hr>
   </div>
 </div>

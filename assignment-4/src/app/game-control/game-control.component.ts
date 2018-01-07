@@ -15,10 +15,15 @@ export class GameControlComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
   onGameStart() {
-    var timer = setInterval(function(){ alert("Hello"); }, 3000);
+    var timeArray = [];
+    var i = 0;
+    function increment() {
+      i++;
+      timeArray.push(i);
+      console.log(timeArray)
+    }
+    var timer = setInterval(function(){ increment(); }, 1000);
 
     //this.gameStarted.emit({
     //  evenNumbers:,

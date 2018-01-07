@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  numbers = [{number: 1}]
 
   // Only executed after button is clicked
   onGameStarted() {
@@ -13,6 +14,5 @@ export class AppComponent {
   }
 
   onGameStopped() {
-    this.numbers.push();
   }
 }
