@@ -6,11 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  numbers = [{number: 1}]
+  timerArray = [];
 
   // Only executed after button is clicked
-  onGameStarted() {
-    setInterval();
+  onGameStarted(timerData: {value:number, even:boolean}) {
+    this.timerArray.push({
+      value: timerData.value,
+      even: timerData.even
+    });
   }
 
   onGameStopped() {
