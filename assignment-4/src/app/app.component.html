@@ -15,8 +15,8 @@
     </div>
     <hr>
     <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
-    <app-even *ngFor="let num of numbersArray"></app-even>
-    <app-odd *ngFor="let num of numbersArray"></app-odd>
+    <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+    <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
     <hr>
   </div>
 </div>
