@@ -14,9 +14,9 @@
       </ol>
     </div>
     <hr>
-    <app-game-control (gameStarted)="onGameStarted($event)" (gameStopped)="onGameStopped($event)"></app-game-control>
-    <app-even *ngFor="let time of timerArray"></app-even>
-    <app-odd *ngFor="let time of timerArray"></app-odd>
+    <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+    <app-even *ngFor="let num of numbersArray"></app-even>
+    <app-odd *ngFor="let num of numbersArray"></app-odd>
     <hr>
   </div>
 </div>

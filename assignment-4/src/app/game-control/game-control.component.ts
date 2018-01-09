@@ -6,9 +6,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  @Output() gameStarted = new EventEmitter<{value:number, even:boolean}>();
-  @Output() gameStopped = new EventEmitter<{}>();
+  interval;
+  @Output() intervalFired = new EventEmitter<number>();
+  lastNumber = 0;
 
+  @Output() emitEvenNumbers = new EventEmitter();
+  @Output() emitOddNumbers = new EventEmitter();
 
   constructor() { }
 
@@ -16,29 +19,25 @@ export class GameControlComponent implements OnInit {
   }
 
   onGameStart() {
-    var timeArray = [];
-    var i = 0;
-    var bool;
-    function increment() {
-      i++;
-      timeArray.push(i);
-      if (i%2==0){
-        bool = true
-      } else {
-        bool = false
-      }
-      console.log(timeArray);
-    }
-    this.timer = setInterval(function(){ increment(); }, 1000);
-    this.gameStarted.emit({
-      value: i,
-      even: bool
-    })
-
+    //var i = 0;
+    //function increment() {
+    //  i++;
+    //  timeArray.push(i);
+    //  if (i%2==0){
+    //    this.emitEvenNumbers.emit(i);
+    //  } else {
+    //    this.emitOddNumbers.emit(i);
+    //  }
+    //  console.log(timeArray);
+    //}
+    this.interval = setInterval(() => {
+      this.intervalFired.emit(this.lastNumber + 1);
+      this.lastNumber++;
+    }, 1000);
   }
 
   onGameStop() {
-    clearInterval(this.timer);
+    clearInterval(this.interval);
   }
 
 }
