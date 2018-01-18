@@ -15,9 +15,37 @@
             {{ odd }}
           </li>
         </div>
+
         <!-- The asterisk indicates to Angular that this is a structural directive -->
         <!-- Behind the scenes, Angular transforms this ngIf usage into something that has property binding, etc. -->
-        <div *ngIf = "!onlyOdd">
+        <!--<div *ngIf = "!onlyOdd">-->
+          <!--<li-->
+            <!--class="list-group-item"-->
+            <!--[ngClass] = "{odd: even % 2 !== 0}"-->
+            <!--[ngStyle] = "{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"-->
+            <!--*ngFor = "let even of evenNumbers">-->
+            <!--{{ even }}-->
+          <!--</li>-->
+        <!--</div>-->
+
+        <!-- Another way of outputting list above -->
+        <!-- ng-template is an element which itself is not rendered; it provides a template for Angular to use -->
+        <!-- The template lets Angular render the content when the condition is determined to be true -->
+        <!-- We can use property binding, without the asterisk, to make the conditional this way: -->
+        <!--<ng-template [ngIf]="!onlyOdd">-->
+          <!--<div>-->
+            <!--<li-->
+              <!--class="list-group-item"-->
+              <!--[ngClass] = "{odd: even % 2 !== 0}"-->
+              <!--[ngStyle] = "{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"-->
+              <!--*ngFor = "let even of evenNumbers">-->
+              <!--{{ even }}-->
+            <!--</li>-->
+          <!--</div>-->
+        <!--</ng-template>-->
+
+        <!-- Using our new structural directive, hence we need the asterisk -->
+        <div *appUnless = "onlyOdd">
           <li
             class="list-group-item"
             [ngClass] = "{odd: even % 2 !== 0}"
@@ -26,21 +54,7 @@
             {{ even }}
           </li>
         </div>
-        <!-- Another way of outputting list above -->
-        <!-- ng-template is an element which itself is not rendered; it provides a template for Angular to use -->
-        <!-- The template lets Angular render the content when the condition is determined to be true -->
-        <!-- We can use property binding, without the asterisk, to make the conditional this way: -->
-        <ng-template [ngIf]="!onlyOdd">
-          <div>
-            <li
-              class="list-group-item"
-              [ngClass] = "{odd: even % 2 !== 0}"
-              [ngStyle] = "{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
-              *ngFor = "let even of evenNumbers">
-              {{ even }}
-            </li>
-          </div>
-        </ng-template>
+
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
       <!-- The directive itself being enclosed in square brackets is a typical use case if you only have one property to bind/one main property -->
