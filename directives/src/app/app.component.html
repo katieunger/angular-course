@@ -26,7 +26,17 @@
         </div>
       </ul>
       <p appBasicHighlight>Style me with basic directive!</p>
-      <p appBetterHighlight>Style me with better directive!</p>
+      <!-- The directive itself being enclosed in square brackets is a typical use case if you only have one property to bind/one main property -->
+      <!-- You can provide an alias - in this case for highlightColor - which is set to 'appBetterHighlight', the directive selector. -->
+      <!-- By default, the directive name is not enclosed in square brackets - this is only if you want to bind to a property that has the same name or is aliased to the selector name -->
+      <!--<p [appBetterHighlight]="'red'" [defaultColor]="'yellow'">Style me with better directive!</p>-->
+
+      <!-- You can remove the square brackets and remove the single quotation marks around the property value -->
+      <!-- For property binding in general, passing a string is a special case and these can be omitted -->
+      <!-- Be careful with this, as it can be confused for a native attribute of the element, but it is property binding -->
+      <!--<p appBetterHighlight defaultColor="yellow" [highlightColor]="'red'">Style me with better directive!</p>-->
+
+      <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style me with better directive!</p>
       <ng-template [ngIf]="onlyOdd">
         <p>Only odd</p>
       </ng-template>
