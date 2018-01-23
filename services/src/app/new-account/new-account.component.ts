@@ -8,7 +8,9 @@ import { AccountsService } from '../accounts.service';
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
   // Need to provide a service to tell Angular how to create instance of our service
-  providers: [LoggingService, AccountsService]
+  // Do not need AccountsService in this providers array - removing it in order to not create a new instance of AccountsService
+  // We want to use same instance as one injected at top of hierarchy, in App Component
+  providers: [LoggingService]
 })
 export class NewAccountComponent {
 
