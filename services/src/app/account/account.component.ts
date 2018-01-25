@@ -14,11 +14,15 @@ export class AccountComponent {
   @Input() id: number;
 
   constructor(private loggingService: LoggingService, private accountsService: AccountsService) {
-
+    // This allows cross-component communication through a service with the event emitter
+    this.accountsService.statusUpdated.subscribe(
+      (status: string) => alert("New Status:" + status)
+    );
   }
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
     //this.loggingService.logStatusChange(status);
+    this.accountsService.statusUpdated.emit(status);
   }
 }
