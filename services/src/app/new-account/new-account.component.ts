@@ -10,7 +10,7 @@ import { AccountsService } from '../accounts.service';
   // Need to provide a service to tell Angular how to create instance of our service
   // Do not need AccountsService in this providers array - removing it in order to not create a new instance of AccountsService
   // We want to use same instance as one injected at top of hierarchy, in App Component
-  providers: [LoggingService]
+  //providers: [LoggingService]
 })
 export class NewAccountComponent {
 
@@ -25,6 +25,6 @@ export class NewAccountComponent {
 
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountsService.addAccount(accountName, accountStatus);
-    this.loggingService.logStatusChange(accountStatus);
+    //this.loggingService.logStatusChange(accountStatus);
   }
 }
