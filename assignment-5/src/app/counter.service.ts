@@ -1,6 +1,6 @@
 export class CounterService {
 
-  count: Number = 0;
+  count: number = 0;
 
   countActions(){
     this.count++;
