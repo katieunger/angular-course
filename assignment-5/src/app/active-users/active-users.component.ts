@@ -9,7 +9,7 @@ import { UsersService } from '../users.service';
 })
 export class ActiveUsersComponent {
   @Input() users: string[];
-  //@Output() userSetToInactive = new EventEmitter<number>();
+  @Input() count: number;
 
   constructor(private usersService: UsersService) {
 

@@ -9,7 +9,6 @@ import { UsersService } from '../users.service';
 })
 export class InactiveUsersComponent {
   @Input() users: string[];
-  //@Output() userSetToActive = new EventEmitter<number>();
 
   constructor(private usersService: UsersService) {
 
