@@ -1,9 +1,15 @@
 export class CounterService {
 
-  count: number = 0;
+  activeToInactiveCounter = 0;
+  inactiveToActiveCounter = 0;
 
-  countActions(){
-    this.count++;
-    console.log("The count is: " + this.count);
+  incrementActiveToInactiveCounter(){
+    this.activeToInactiveCounter++;
+    console.log("The active to inactive count is: " + this.activeToInactiveCounter);
+  }
+
+  incrementInactiveToActiveCounter(){
+    this.inactiveToActiveCounter++;
+    console.log("The active to inactive count is: " + this.inactiveToActiveCounter);
   }
 }

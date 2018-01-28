@@ -13,7 +13,8 @@ export class AppComponent implements OnInit, DoCheck {
 
   activeUsers: Array<string> = [];
   inactiveUsers: Array<string> = [];
-  count: Number = 0;
+  activeToInactive: Number = 0;
+  inactiveToActive: Number = 0;
 
   constructor(private usersService: UsersService, private counterService: CounterService) {
 
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    this.count = this.counterService.count;
+    this.activeToInactive = this.counterService.activeToInactiveCounter;
+    this.inactiveToActive = this.counterService.inactiveToActiveCounter;
   }
 
 }
