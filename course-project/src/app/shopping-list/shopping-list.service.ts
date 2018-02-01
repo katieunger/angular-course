@@ -21,4 +21,15 @@ export class ShoppingListService {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
+
+  addIngredients(ingredients: Ingredient[]) {
+    // This works but causes a lot of events to be emitted
+    //for (let ingredient of ingredients){
+    //  this.addIngredient(ingredient);
+    //}
+
+    //ES6 spread allows us to turn an array of elements into a list of elements
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
