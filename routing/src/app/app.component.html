@@ -2,9 +2,15 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Servers</a></li>
-        <li role="presentation"><a href="#">Users</a></li>
+        <!-- We don't use href for navigation because this reloads the app on each route and loses state -->
+        <!-- Instead, we use special directive called routerLink -->
+        <!-- routerLink catches the click on these elements, prevents the default (sending a request), and instead
+        analyzes what we passed to the routerLink directive and parses it, looking for a matching route in the
+        configuration -->
+        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
+        <li role="presentation"><a routerLink="/servers">Servers</a></li>
+        <!-- We can construct more complex paths using property binding and array notation -->
+        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
       </ul>
     </div>
   </div>
