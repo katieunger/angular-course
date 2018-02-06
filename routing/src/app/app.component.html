@@ -8,9 +8,10 @@
         analyzes what we passed to the routerLink directive and parses it, looking for a matching route in the
         configuration -->
         <li role="presentation" class="active"><a routerLink="/">Home</a></li>
-        <li role="presentation"><a routerLink="/servers">Servers</a></li>
+        <!-- Relative paths from root component -->
+        <li role="presentation"><a routerLink="servers">Servers</a></li>
         <!-- We can construct more complex paths using property binding and array notation -->
-        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
+        <li role="presentation"><a [routerLink]="['users']">Users</a></li>
       </ul>
     </div>
   </div>
