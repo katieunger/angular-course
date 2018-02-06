@@ -7,11 +7,22 @@
         <!-- routerLink catches the click on these elements, prevents the default (sending a request), and instead
         analyzes what we passed to the routerLink directive and parses it, looking for a matching route in the
         configuration -->
-        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
+
+        <!-- Using routerLinkActive directive, we can pass class to use when link is active -->
+        <!-- routerLinkActive directive analyzes your currently loaded path and checks which links use a route that leads to this path -->
+        <!-- Home is always marked as active because all links contain  "/" in the path -->
+        <!-- By using routerLinkActiveOptions directive, we can set more configurations to avoid this - exact is a reserved property -->
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="/">Home</a>
+        </li>
         <!-- Relative paths from root component -->
-        <li role="presentation"><a routerLink="servers">Servers</a></li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="servers">Servers</a>
+        </li>
         <!-- We can construct more complex paths using property binding and array notation -->
-        <li role="presentation"><a [routerLink]="['users']">Users</a></li>
+        <li role="presentation" routerLinkActive="active">
+          <a [routerLink]="['users']">Users</a>
+        </li>
       </ul>
     </div>
   </div>
