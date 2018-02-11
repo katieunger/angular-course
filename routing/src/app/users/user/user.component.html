@@ -1,2 +1,6 @@
 <p>User with ID {{ user.id }} loaded.</p>
 <p>User name is {{ user.name }}</p>
+<hr>
+<a [routerLink]="['/users',10,'Anna']">Load Anna (10)</a>
+<!-- The URL changes but we are already on the component loaded, so Angular does not re-render -->
+<!-- Therefore, the data displayed is not updated -->
