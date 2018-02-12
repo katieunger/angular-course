@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxJs/Subscription';
+import { Subscription } from 'rxjs/subscription';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy{
   user: {id: number, name: string};
   paramsSubscription: Subscription;
 
   // The ActivatedRoute object we injected will give us access to the id passed the URL - the selected user
-  constructor(private route: ActivatedRoute, OnDestroy) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = {
@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
     // This code will only fire when params change
 
     // Angular cleans up this subscription whenever this component is destroyed
-    //
+
     this.paramsSubscription = this.route.params
       .subscribe (
       (params: Params) => {
