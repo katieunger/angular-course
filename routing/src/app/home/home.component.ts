@@ -13,12 +13,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadServers(){
+  onLoadServer(id: number){
     // complex calculation
     // Need to get access to router to navigate here
     // Navigate method takes an argument which is an array of the different elements of the path
     // We are using an absolute path
-    this.router.navigate(['/servers']);
+    this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowEdit: '1'}, fragment: 'loading'});
   }
 
 }
