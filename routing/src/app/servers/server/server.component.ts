@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute, Params } from '@angular/router';
 import { ServersService } from '../servers.service';
 
 @Component({
@@ -10,10 +10,18 @@ import { ServersService } from '../servers.service';
 export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    // Plus sign below converts id from string to number
+    const id = +this.route.snapshot.params['id'];
+    this.server = this.serversService.getServer(id);
+    this.route.params.subscribe(
+      (params: Params) => {
+        // Plus sign below converts id from string to number
+        this.server = this.serversService.getServer(+params['id']);
+      }
+    )
   }
 
 }

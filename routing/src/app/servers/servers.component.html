@@ -3,7 +3,7 @@
     <!-- Query params is another bindable property of the routerLink directive -->
     <div class="list-group">
       <a
-        [routerLink]="['/servers', 5, 'edit']"
+        [routerLink]="['/servers', server.id]"
         [queryParams]="{allowEdit:'1'}"
         fragment="loading"
         href="#"
@@ -20,7 +20,7 @@
     <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
     <app-edit-server></app-edit-server>
     <hr>
-    <app-server></app-server>
+    <!--<app-server></app-server>-->
   </div>
 </div>
 
