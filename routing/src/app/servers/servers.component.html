@@ -14,13 +14,14 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet>
     <!-- Need to use an absolute path here - absolute paths always get appended to root -->
     <!-- Using a relative path (servers) this loads servers/servers, which does not exist as a route -->
     <!--<a routerLink="/servers">Reload Page</a>-->
-    <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
-    <app-edit-server></app-edit-server>
-    <hr>
-    <!--<app-server></app-server>-->
+    <!--<button class="btn btn-primary" (click)="onReload()">Reload Page</button>-->
+    <!--<app-edit-server></app-edit-server>-->
+    <!--<hr>-->
+    <!--&lt;!&ndash;<app-server></app-server>&ndash;&gt;-->
   </div>
 </div>
 
