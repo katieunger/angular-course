@@ -1,4 +1,4 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 // (You may have some guards which execute some code that runs completely on the client, therefore they run synchronously)
 // (Or, you might have some code which takes a couple fo seconds to run due to using a timeout or reaching out to server, therefore the guard runs asynchronously)
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService, private router: Router){}
 
   canActivate(route: ActivatedRouteSnapshot,
@@ -26,5 +26,10 @@ export class AuthGuard implements CanActivate {
           }
       }
     )
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot,
+                  state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return this.canActivate(route, state);
   }
 }
