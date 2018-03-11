@@ -37,8 +37,18 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
+  // All URLS are parsed by the server first, not by Angular.
+  // The server hosting your single page Angular application has to be configured so that in case of a 404 error
+  // it returns the index.html file.
+  // This is because when going to <mydomain.com>/servers, the host server will look for /servers and not find it (we only have index.html).
+  // We want Angular to parse this route, but the server will return a 404 first.
+
+  // Using the useHash configuration allows us to support old browsers that cannot parse routes with slashes, like /servers
+  // This uses a hash sign in routes, an older technique (#servers)
+  // This informs the server that it should only parse the URL before the hash
   imports: [
     RouterModule.forRoot(appRoutes)
+    //RouterModule.forRoot(appRoutes, {useHash: true})
   ],
   exports: [RouterModule]
 })
