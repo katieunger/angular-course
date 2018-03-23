@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Observer } from 'rxjs/Observer';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  numbersObsSubscription: Subscription;
+  customObsSubscription: Subscription;
 
   constructor() { }
 
   ngOnInit() {
-    //// Interval is a simple method for creating a new Observable
-    //// We pass a number to interval as a parameter, and this specifies the number of milliseconds elapsed between emitting Observables
-    //const myNumbers = Observable.interval(1000);
-    //// Now that we have created the myNumbers Observable, we can subscribe to it
-    //// Subscribe can be passed three callback functions: one for handling data, one for handling errors, and one for handling completion
-    //// This Observable will not fail (raise an error) or complete
-    //myNumbers.subscribe(
-    //  (number: number) => {
-    //    console.log(number);
-    //  }
-    //)
+    // Interval is a simple method for creating a new Observable
+    // We pass a number to interval as a parameter, and this specifies the number of milliseconds elapsed between emitting Observables
+    const myNumbers = Observable.interval(1000);
+    // Now that we have created the myNumbers Observable, we can subscribe to it
+    // Subscribe can be passed three callback functions: one for handling data, one for handling errors, and one for handling completion
+    // This Observable will not fail (raise an error) or complete
+    this.numbersObsSubscription = myNumbers.subscribe(
+      (number: number) => {
+        console.log(number);
+      }
+    )
 
     // The create method takes a function as an argument
     // This function should take your asynchronous code
@@ -46,11 +49,16 @@ export class HomeComponent implements OnInit {
         observer.next('third package');
       }, 6000);
     });
-    myObservable.subscribe(
+    this.customObsSubscription = myObservable.subscribe(
       (data: string)=>{ console.log(data); },
       (error: string)=>{ console.log(error); },
       // This completed function won't be called as of now
       ()=>{ console.log('completed'); }
     )
+  }
+
+  ngOnDestroy() {
+    this.numbersObsSubscription.unsubscribe();
+    this.customObsSubscription.unsubscribe();
   }
 }
