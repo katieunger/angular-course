@@ -45,13 +45,16 @@
           class="btn btn-primary"
           type="submit"
           [disabled]="!f.valid">Submit</button>
-        <span class="help-block" *ngIf="!f.valid && f.touched">Form is invalid - please try again!</span>
+        <p class="text-danger" *ngIf="!f.valid && f.touched">Form is invalid - please try again!</p>
       </form>
       <hr>
-      <h2>Submission</h2>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>Subscription:</strong> {{ user.subscription }}</p>
-      <p><strong>Password:</strong> {{ user.password }}</p>
+      <div *ngIf="f.submitted">
+        <h2>Submission</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Subscription:</strong> {{ user.subscription }}</p>
+        <p><strong>Password:</strong> {{ user.password }}</p>
+      </div>
+
 
       <!-- Add a Form with the following Inputs (and Validators)
            1) Mail address (should not be empty and should be an email address)

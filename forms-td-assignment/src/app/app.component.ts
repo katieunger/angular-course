@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 @Component({
