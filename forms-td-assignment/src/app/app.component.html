@@ -1,6 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+              email
+              #email="ngModel"
+              required>
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email.</span>
+          </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
+      </form>
+
       <!-- Add a Form with the following Inputs (and Validators)
            1) Mail address (should not be empty and should be an email address)
            2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
