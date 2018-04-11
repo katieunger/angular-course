@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <h2>My Form</h2>
       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error':!email.valid && email.touched}">
           <label for="email">Email</label>
           <input
             type="text"
@@ -28,7 +28,7 @@
             <option value="pro">Pro</option>
           </select>
         </div>
-        <div class="form-group" ng-class="{'has-error':!password.valid && password.touched}">
+        <div class="form-group" [ngClass]="{'has-error':!password.valid && password.touched}">
           <label class="control-label" for="password">Password</label>
           <input
             type="password"
