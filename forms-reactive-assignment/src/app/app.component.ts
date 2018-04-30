@@ -9,13 +9,14 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
   projectForm: FormGroup;
-  forbiddenProjectNames = ['Test'];
-
+  forbiddenProjectNames = ['Test', 'test'];
+  statuses = ['stable', 'critical', 'finished'];
 
   ngOnInit() {
     this.projectForm = new FormGroup({
       'projectName': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
-      'email': new FormControl(null, [Validators.required, Validators.email])
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'status': new FormControl('stable')
     });
   }
 
