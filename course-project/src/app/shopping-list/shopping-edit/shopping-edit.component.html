@@ -34,7 +34,7 @@
             class="btn btn-success"
             [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
           <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-primary">Clear</button>
+          <button type="button" class="btn btn-primary" (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>
