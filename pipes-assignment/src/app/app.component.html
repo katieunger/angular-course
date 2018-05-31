@@ -1,4 +1,8 @@
 <div class="container">
+  <ul>
+    <li>Build a reverse pipe - reverses a string (reverse instance type). Note: you can use reverse method, but this only works on arrays.</li>
+    <li>Build a sort pipe - sort list by name of instance</li>
+  </ul>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <input type="text" [(ngModel)]="filteredStatus">
@@ -10,14 +14,14 @@
       <ul class="list-group">
         <li
           class="list-group-item"
-          *ngFor="let server of servers"
+          *ngFor="let server of servers | sort:'name'"
           [ngClass]="getStatusClasses(server)">
           <span
             class="badge">
             {{ server.status }}
           </span>
           <strong>{{ server.name }}</strong> |
-          {{ server.instanceType | uppercase }} |
+          {{ server.instanceType | uppercase | reverse }} |
           {{ server.started | date:'fullDate' | uppercase }}
         </li>
       </ul>
