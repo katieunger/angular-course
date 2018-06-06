@@ -46,6 +46,8 @@ export class AppComponent {
       (error) => console.log(error)
     );
   }
+
+
   private generateId() {
     return Math.round(Math.random() * 10000);
   }
