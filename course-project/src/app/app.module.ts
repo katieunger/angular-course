@@ -31,9 +31,9 @@ import { RecipesModule } from './recipes/recipes.module';
   imports: [
     BrowserModule,
     FormsModule,
+    RecipesModule,
     AppRoutingModule,
-    HttpModule,
-    RecipesModule
+    HttpModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
