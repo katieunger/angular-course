@@ -22,9 +22,15 @@ export class DataStorageService {
   getRecipes() {
     const token = this.authService.getToken();
 
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json?auth=' + token)
+    // If we are not receiving JSON data, we can define options for the request in the second parameter of get
+    this.httpClient.get<Recipe[]>('https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json?auth=' + token, {
+      observe: 'body',
+      responseType: 'json'
+    })
+    //this.httpClient.get<Recipe[]>('https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json?auth=' + token)
       .map(
         (recipes) => {
+          console.log(recipes);
           for (let recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
