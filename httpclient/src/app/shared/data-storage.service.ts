@@ -14,7 +14,6 @@ export class DataStorageService {
   }
 
   storeRecipes() {
-    const token = this.authService.getToken();
     //const headers = new HttpHeaders().set('Authorization', 'Bearer asdkaghlkajd');
 
     //return this.httpClient.put('https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
@@ -28,18 +27,16 @@ export class DataStorageService {
       'https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json',
       this.recipeService.getRecipes(),
       {
-        reportProgress: true,
-        params: new HttpParams().set('auth', token)
+        reportProgress: true
       })
 
     return this.httpClient.request(req)
   }
 
   getRecipes() {
-    const token = this.authService.getToken();
 
     // If we are not receiving JSON data, we can define options for the request in the second parameter of get
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json?auth=' + token, {
+    this.httpClient.get<Recipe[]>('https://ng-recipe-book-ec4c6.firebaseio.com/recipes.json', {
       observe: 'body',
       responseType: 'json'
     })
