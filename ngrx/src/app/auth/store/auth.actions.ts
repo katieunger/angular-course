@@ -1,9 +1,17 @@
 import { Action } from '@ngrx/store';
 
+export const TRY_SIGNUP = 'TRY_SIGNUP';
+// This action is only fired once we have successfully signed  up - we are switching the authentication status
 export const SIGNUP = 'SIGNUP';
 export const SIGNIN = 'SIGNIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_TOKEN = 'SET_TOKEN';
+
+export class TrySignup implements Action {
+  readonly type = TRY_SIGNUP;
+
+  constructor(public payload: {username: string, password: string}) {};
+}
 
 export class Signup implements Action {
   readonly type = SIGNUP;
@@ -23,4 +31,4 @@ export class SetToken implements Action {
   constructor(public payload: string) {}
 }
 
-export type AuthActions = Signup | Signin | Logout | SetToken;
+export type AuthActions = Signup | Signin | Logout | SetToken | TrySignup;
