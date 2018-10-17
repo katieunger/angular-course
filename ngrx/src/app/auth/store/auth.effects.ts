@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -49,6 +50,7 @@ export class AuthEffects {
       return fromPromise(firebase.auth().currentUser.getIdToken());
     })
     .mergeMap((token: string) => {
+      this.router.navigate(['/']);
       return [
         {
           type: AuthActions.SIGNIN
@@ -61,7 +63,7 @@ export class AuthEffects {
     });
   // Using $ to indicate that actions is an Observable
   // actions$ is just like a list of all the actions we have in our app
-  constructor(private actions$: Actions) {
+  constructor(private actions$: Actions, private router: Router) {
 
   }
 }
