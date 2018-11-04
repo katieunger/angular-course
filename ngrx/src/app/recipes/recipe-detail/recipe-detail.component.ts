@@ -38,7 +38,7 @@ export class RecipeDetailComponent implements OnInit {
       .take(1)
       .subscribe((recipeState: fromRecipe.State) => {
         this.store.dispatch(new ShoppingListActions.AddIngredients(
-          recipeState.recipes[this.id].ingredients]
+          recipeState.recipes[this.id].ingredients
         ));
       });
     //this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
