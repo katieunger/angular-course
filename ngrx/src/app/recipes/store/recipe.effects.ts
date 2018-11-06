@@ -43,7 +43,7 @@ export class RecipeEffects {
       return this.httpClient.request(req);
   })
   constructor(private actions$: Actions,
-              private httpClient: HttpClient
+              private httpClient: HttpClient,
               private store: Store<fromRecipe.FeatureState>) {}
 
 }
